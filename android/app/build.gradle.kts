@@ -6,8 +6,6 @@ plugins {
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
 }
 
 val keystoreProps = Properties()
@@ -49,7 +47,11 @@ android {
 
     buildTypes {
         release {
-            signingConfig     = signingConfigs.getByName("release")
+            signingConfig = if (keystorePropsFile.exists()) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
             isMinifyEnabled   = true
             isShrinkResources = true
             proguardFiles(
@@ -62,4 +64,10 @@ android {
 
 flutter {
     source = "../.."
+}
+
+// Firebase — solo se activa cuando google-services.json existe (tras flutterfire configure)
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+    apply(plugin = "com.google.firebase.crashlytics")
 }
