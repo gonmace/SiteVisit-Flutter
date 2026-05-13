@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze *)",
+      "Bash(Get-ChildItem *)",
+      "Bash(findstr /n \"catch\\\\|try\\\\|Exception\\\\|Error\" lib\\\\services\\\\sync_service.dart)",
+      "Bash(flutter pub *)",
+      "Bash(findstr /i \"error warning\")",
+      "Bash(Select-String \"error\")",
+      "Bash(findstr /C:\"error\" /C:\"warning\" /C:\"issues found\")",
+      "Bash(Select-String -Pattern \"error|warning|issues found\")",
+      "Bash(del *)",
+      "Bash(dart run *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(New-Item *)",
+      "PowerShell(New-Item *)"
+    ]
+  }
+}

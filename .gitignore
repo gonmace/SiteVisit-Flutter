@@ -47,3 +47,8 @@ app.*.map.json
 # Firebase — credenciales generadas por flutterfire configure
 /lib/firebase_options.dart
 /android/app/google-services.json
+
+# Tool scripts — dependencias Node
+/tool/node_modules/
+/tool/package.json
+/tool/package-lock.json
