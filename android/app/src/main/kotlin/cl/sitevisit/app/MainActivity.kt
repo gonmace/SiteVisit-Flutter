@@ -1,4 +1,4 @@
-package com.example.sitevisit_app
+package cl.sitevisit.app
 
 import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
@@ -10,7 +10,7 @@ class MainActivity : FlutterActivity() {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
-            "com.example.sitevisit_app/device"
+            "cl.sitevisit.app/device"
         ).setMethodCallHandler { call, result ->
             when (call.method) {
                 "getAndroidId" -> result.success(
